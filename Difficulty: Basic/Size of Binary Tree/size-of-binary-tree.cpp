@@ -115,33 +115,50 @@ struct Node
 class Solution {
   public:
   
-  //global variable which will be same for every recursive call and hence will be passed as reference
-  int count = 0;
-  //function for counting the no of nodes using recursion
-  void TotalNodes(Node * root, int & count){
+  //METHOD - 1
+  
+//   //global variable which will be same for every recursive call and hence will be passed as reference
+//   int count = 0;
+//   //function for counting the no of nodes using recursion
+//   void TotalNodes(Node * root, int & count){
+//       //base case
+//       if(root == NULL){
+//           return;
+//       }
+      
+//       //recursive case
+//       //current node ko count karlo
+//       count++;
+//       //left me jao
+//       TotalNodes(root->left, count);
+//       //right me jso
+//       TotalNodes(root->right, count);
+//   }
+  
+//     int getSize(Node* node) {
+//         // code here
+//         TotalNodes(node, count);
+        
+//         return count;
+        
+//     }
+
+  //METHOOD - 2
+  
+  int TotalNodesMethod2(Node * root){
       //base case
       if(root == NULL){
-          return;
+          return 0;
       }
       
       //recursive case
-      //current node ko count karlo
-      count++;
-      //left me jao
-      TotalNodes(root->left, count);
-      //right me jso
-      TotalNodes(root->right, count);
+      return (1 + TotalNodesMethod2(root->left) + TotalNodesMethod2(root->right));
   }
   
-    int getSize(Node* node) {
-        // code here
-        TotalNodes(node, count);
-        
-        return count;
-        
-    }
+  int getSize(Node* node){
+      return TotalNodesMethod2(node);
+  }
 };
-
 
 //{ Driver Code Starts.
 
