@@ -94,28 +94,50 @@ struct Node
 // the function should return the count of Non-Leaf Nodes
 class Solution {
   public:
-  //global variable
-  int count = 0;
-  void helperFunction(Node* root, int & count){
-      //base case
-      if(root == NULL){
-          return;
-      }
+  
+  //METHOD - 1
+//   //global variable
+//   int count = 0;
+//   void helperFunction(Node* root, int & count){
+//       //base case
+//       if(root == NULL){
+//           return;
+//       }
       
-      if(root ->left || root->right){
-          count++;
-      }
+//       if(root ->left || root->right){
+//           count++;
+//       }
       
-      //recursive case
-      helperFunction(root->left,count);
-      helperFunction(root->right,count);
+//       //recursive case
+//       helperFunction(root->left,count);
+//       helperFunction(root->right,count);
       
-  }
-    int countNonLeafNodes(Node* root) {
-        // Code here
-        helperFunction(root,count);
-        return count;
-    }
+//   }
+//     int countNonLeafNodes(Node* root) {
+//         // Code here
+//         helperFunction(root,count);
+//         return count;
+//     }
+// };
+
+//METHOD - 2
+
+       int helperFunction(Node * root){
+           //base cases
+           if(root == NULL){
+               return 0;
+           }
+           if( !root->left && !root->right ){
+               return 0;
+           }
+           
+           //recursive cases
+           return (1+helperFunction(root->left) + helperFunction(root->right));
+       }
+
+       int countNonLeafNodes(Node* root){
+           return helperFunction(root);
+       }
 };
 
 //{ Driver Code Starts.
