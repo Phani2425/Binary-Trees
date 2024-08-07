@@ -99,33 +99,46 @@ struct Node
 class Solution{
     public:
     
-    int maxCount = INT_MIN;
+    //METHOD - 1
     
-    void helperFunction(Node* root,int count, int & maxCount){
-        //base cases
-        if(root == NULL){
-            return;
-        }
-        if( !root->left && !root->right ){
-            maxCount = max(maxCount,count);
-            return;
-        }
-        
-        //recursive cases
-        
-        count++;
-        helperFunction(root->left, count , maxCount);
-        helperFunction(root->right, count , maxCount);
-    }
+//     int maxCount = INT_MIN;
     
-    //Function to find the height of a binary tree.
-    int height(struct Node* node){
-        // code here 
-        helperFunction(node, 0 , maxCount);
+//     void helperFunction(Node* root,int count, int & maxCount){
+//         //base cases
+//         if(root == NULL){
+//             return;
+//         }
+//         if( !root->left && !root->right ){
+//             maxCount = max(maxCount,count);
+//             return;
+//         }
         
-        return maxCount+1;
-    }
-};
+//         //recursive cases
+        
+//         count++;
+//         helperFunction(root->left, count , maxCount);
+//         helperFunction(root->right, count , maxCount);
+//     }
+    
+//     //Function to find the height of a binary tree.
+//     int height(struct Node* node){
+//         // code here 
+//         helperFunction(node, 0 , maxCount);
+        
+//         return maxCount+1;
+//     }
+// };
+
+      //METHOD - 2
+      
+       int height(struct Node* node){
+           if(node == NULL){
+               return 0;
+           }
+           
+           return (1 + max(height(node->left), height(node->right)));
+       }
+}; 
 
 //{ Driver Code Starts.
 int main()
