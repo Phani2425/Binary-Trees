@@ -160,7 +160,9 @@ bool isCousins(Node *root, int a, int b) {
             
         }
         currLevel++;
-        
+
+        //edge case:- agar sare level dhundne ke baad bhi a aur b ka level nehi mila then iska matlab ye hai ki wo tree me hai hi nehi
+    //so return false
         if(levelOfa != levelOfb ){
                 return false;
         }
