@@ -163,3 +163,39 @@ vector<int> leftView(Node *root)
    
    return ans;
 }
+
+
+//method -2 (recursive mthod) [inteerviewere might ask me to solvve this without using queue]
+
+void helperFunction(Node * root, vector<int> & ans, int level){
+    if(root == NULL){
+        return;
+    }
+    if(level == ans.size()){
+        ans.push_back(root->data);
+    }
+    
+    helperFunction(root->left,ans,level+1);
+    helperFunction(root->right,ans,level+1);
+}
+
+vector<int> leftView(Node *root)
+{
+  vector<int> ans;
+  helperFunction(root,ans,0);
+  
+  return ans;
+}
+
+//in this method the logic is i will traverse the tree using recyrsion but alsoi will keep look on which level on i am 
+//mane mu basicaly jetebele got specific level ku first time pain jibi setebele mu sei node ra data ku ans re store karidebi 
+//mu ethire unordered map use kariparibi jouthire mu level ku key nebi au sei level ra leftmost data ku value rakhibi
+//and each time i will go to a new node i will check that in the map do i have any element against the current level i am \//if yes then i will not store as i have already visited that level
+//but if no the i will store the data of that node against current level as it's key
+
+//ANOTHER WAY
+//here i will not use map i will use simokle logic to solve the question 
+// where also i have to remember the level no i am currently in but to check if i have already visited this level or not i will use the size of the ans vector
+//mane ans vector re mu every level ra left most element entry karibi.... so jadi mu ebe 2nd level ku assili then mu check karibi mo ans vector ra size kete
+//jadi size 2 thiba (LEFT MOST DATA OF 0TH AND 1ST LEVEL) then mu 2nd level ku first ttime pain asichi so i will push the data au jadi size 2 ru adhika thiba then mu laready 3rd level ra left most element push karisarichi au ebe mu 3rd level ku again visit karuchi
+//BASICALLY THE SIZE OF ANS VECTOR = NO OF LEVELS FOR WHICH  I HAVE ALREADY PUSHED THE LEFT MOST ELEMENT IN ANS
