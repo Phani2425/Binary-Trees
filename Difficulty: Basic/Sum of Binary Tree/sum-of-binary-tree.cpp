@@ -83,7 +83,8 @@ struct Node
 // Function should return the sum of all the elements
 // of the binary tree
 
-long int SumOfBinaryTree(Node * root){
+long int sumBT(Node* root)
+{
     //base case
     if(root == NULL){
         return 0;
@@ -91,11 +92,4 @@ long int SumOfBinaryTree(Node * root){
     
     //recursive case
     return ( root->key + SumOfBinaryTree(root->left) + SumOfBinaryTree(root->right) );
-    
-}
-
-long int sumBT(Node* root)
-{
-    // Code here
-    return SumOfBinaryTree (root);
 }
