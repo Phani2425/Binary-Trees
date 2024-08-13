@@ -145,7 +145,7 @@ class Solution {
 
   //METHOOD - 2
   
-  int TotalNodesMethod2(Node * root){
+  int getSize(Node* node){
       //base case
       if(root == NULL){
           return 0;
@@ -153,10 +153,6 @@ class Solution {
       
       //recursive case
       return (1 + TotalNodesMethod2(root->left) + TotalNodesMethod2(root->right));
-  }
-  
-  int getSize(Node* node){
-      return TotalNodesMethod2(node);
   }
 };
 
