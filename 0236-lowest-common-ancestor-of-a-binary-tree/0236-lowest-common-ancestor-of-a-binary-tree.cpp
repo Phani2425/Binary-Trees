@@ -60,3 +60,32 @@ public:
         return ansNode;
     }
 };
+
+
+//WAY 2
+
+class Solution {
+public:
+  
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+       if(!root){
+        return NULL;
+       }
+       if(root == p || root == q){
+        return root;
+       }
+
+       //left side se leftn nikal lo
+       TreeNode* leftN = lowestCommonAncestor(root->left,p,q);
+        //right side se leftn nikal lo
+       TreeNode* rightN = lowestCommonAncestor(root->right,p,q);
+
+       if(leftN && rightN){
+        return root;
+       }
+       if(leftN==NULL){
+        return rightN;
+       }
+       return leftN;
+    }
+};
