@@ -12,6 +12,12 @@
 class Solution {
 public:
     TreeNode* addOneRow(TreeNode* root, int val, int depth) {
+        //edge case where depth is 1
+        if(depth == 1){
+            TreeNode* temp = new TreeNode(val);
+            temp->left = root;
+            return temp;
+        }
         queue<TreeNode*> q;
         q.push(root);
         int currDepth = 1;
