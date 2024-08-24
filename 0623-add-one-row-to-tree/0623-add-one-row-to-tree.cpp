@@ -65,3 +65,53 @@ public:
         return root;
     }
 };
+
+
+
+
+//SOLVING IT  USING DFS [BASICALLY RECURSION]
+
+class Solution {
+public:
+
+    //a recursive function which will traverse each node and when a node turns out to be "curr" Node {as mentioned in question} {curr nodes are all the not null node which are at depth of [depth-1] :- means the nodes under which new row will be added}
+    // it will add left and right child node with value "val" to the nodes left and right side
+    void addOneRowHelper(TreeNode* node, int val, int depth, int currDepth){
+        if(!node){
+            return;
+        }
+        if(currDepth == depth-1){
+            TreeNode* nodeLeft = new TreeNode(val);
+                if(node->left){
+                    nodeLeft->left = node->left;
+                }
+                //left ho na ho ye new node temp ke left me add hoga
+                node->left = nodeLeft;
+                //for creating right subtree root
+                TreeNode* nodeRight = new TreeNode(val);
+                if(node->right){
+                    nodeRight->right = node->right;
+                }
+                ///similar for right
+                node->right = nodeRight;
+        }
+
+        addOneRowHelper(node->left,val,depth,currDepth+1);
+        addOneRowHelper(node->right,val,depth,currDepth+1);
+    }
+
+
+    TreeNode* addOneRow(TreeNode* root, int val, int depth) {
+        //edge case where depth is 1
+        if(depth == 1){
+            TreeNode* temp = new TreeNode(val);
+            temp->left = root;
+            return temp;
+        }
+
+        addOneRowHelper(root,val,depth,1);
+
+        return root;
+
+    }
+};
