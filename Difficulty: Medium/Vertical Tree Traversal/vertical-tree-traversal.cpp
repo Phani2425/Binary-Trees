@@ -177,6 +177,48 @@ class Solution
        
 };
 
+//THEN I SOLVED IT IN A SINGLE ARRAY
+
+ // vector<int> verticalOrder(Node *root)
+ //    {
+ //        int extremeLeft=0,extremeRight=0;
+ //        helperFun(extremeLeft,extremeRight,root,0);
+        
+ //        int size = extremeRight-extremeLeft+1;
+        
+ //        vector<vector<int>>ans(size);
+ //        queue<Node*>q;
+ //        queue<int>level;
+ //        q.push(root);
+ //        level.push(0);
+        
+ //        while(!q.empty()){
+ //            Node* temp = q.front();
+ //            q.pop();
+ //            int currLvl = level.front();
+ //            level.pop();
+ //            ans[abs(extremeLeft)+currLvl].push_back(temp->data);
+ //            if(temp->left){
+ //                q.push(temp->left);
+ //                level.push(currLvl-1);
+ //            }
+ //            if(temp->right){
+ //                q.push(temp->right);
+ //                level.push(currLvl+1);
+ //            }
+ //        }
+        
+ //        vector<int>Finalans;
+ //        for(auto v:ans){
+ //            for(int node:v){
+ //                Finalans.push_back(node);
+ //            }
+ //        }
+        
+ //        return Finalans;
+        
+ //    }
+
 
 
 //{ Driver Code Starts.
