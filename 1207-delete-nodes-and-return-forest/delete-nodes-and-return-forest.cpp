@@ -42,6 +42,11 @@ public:
         }
         deleteNode(root,ans,set);
 
+        //so here we are handling a edge case
+        //to_delete re either the root node of tree thaipare or na bi thai pare
+
+        //jadi thiba then seta upare recurive function re handle heijiba au end re seta delete heijba but jadi nathae that should be pushed to the ans right??? so we will do that here and handle the case when the root node is present in to_delete vector
+
         if(set.find(root->val) == set.end()){
             ans.push_back(root);
         }
