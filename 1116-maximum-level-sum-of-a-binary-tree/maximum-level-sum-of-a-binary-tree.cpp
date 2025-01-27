@@ -20,7 +20,7 @@ public:
         q.push(root);
 
         int maxSum = INT_MIN;
-        int minLvl = INT_MAX;
+        int minLvl = 1;
         int currLvl = 1;
         
         while(!q.empty()){
