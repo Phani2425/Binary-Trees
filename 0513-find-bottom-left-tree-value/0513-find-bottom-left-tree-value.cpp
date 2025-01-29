@@ -62,3 +62,19 @@ public:
        return ans;
     }
 };
+
+
+
+
+// Approach - 1
+
+// first depth is 0 at root
+// track the depth in each level by recursion and when you get a depth value more that currdepth value then update the value
+
+// Approach - 2
+
+// normal BFS with size tracking at each leevl
+
+// approach - 3
+
+// ulta BFS -> means peghle right ghusao tthen left
